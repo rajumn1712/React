@@ -6,19 +6,20 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="header-access">
+        <div className="header-search flex-auto">
+        <img src={logo} className="App-logo" alt="logo" />React</div>
+        <nav className="d-flex pull-right">
+            <a className="header-link py-3">Home</a>
+            <a className="header-link py-3">About</a>
+            <a className="header-link py-3">Contact</a>
+            <a className="header-link py-3">Network</a>
+          </nav>
+        </div>
       </header>
+      <div>
+        <h1>Hi Welcome to React Application Development</h1>
+      </div>
     </div>
   );
 }
