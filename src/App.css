@@ -35,7 +35,6 @@
 }
 .flex-auto{
   flex: auto !important;
-  font-size: 30px;
 }
 .d-flex{
   display: flex !important;
@@ -55,10 +54,24 @@
   margin-top: -16px !important;
   margin-bottom: -16px !important;
 }
+.pd{
+  padding: 16px !important;
+}
 .App-link {
   color: #61dafb;
 }
-
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 100vh !important;
+  z-index: 100;
+  padding: 48px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+  margin-top: 65px !important;
+  background-color: #282c34 !important;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

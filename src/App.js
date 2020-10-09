@@ -1,24 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Container } from 'react-bootstrap';
 import './App.css';
+import HeaderComponent from './Layout/header';
+import UserComponent from './Users/User';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <div className="header-access">
-        <div className="header-search flex-auto">
-        <img src={logo} className="App-logo" alt="logo" />React</div>
-        <nav className="d-flex pull-right">
-            <a className="header-link py-3">Home</a>
-            <a className="header-link py-3">About</a>
-            <a className="header-link py-3">Contact</a>
-            <a className="header-link py-3">Network</a>
-          </nav>
-        </div>
-      </header>
-      <div>
-        <h1>Hi Welcome to React Application Development</h1>
+      <HeaderComponent/>
+      <div className="container">
+        <h4>Hi Welcome to React Application Development</h4>
+        <UserComponent/>
       </div>
     </div>
   );
