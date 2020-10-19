@@ -57,6 +57,9 @@
 .pd{
   padding: 16px !important;
 }
+.cursor-p{
+  cursor: pointer;
+}
 .App-link {
   color: #61dafb;
 }

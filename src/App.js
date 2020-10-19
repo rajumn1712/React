@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <HeaderComponent/>
       <div className="container">
-        <h4>Hi Welcome to React Application Development</h4>
+        <h4>React Application</h4>
         <UserComponent/>
       </div>
     </div>
