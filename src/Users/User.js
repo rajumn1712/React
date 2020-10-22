@@ -1,9 +1,10 @@
 import { Checkbox, Icon } from '@material-ui/core';
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { Table } from 'react-bootstrap';
 import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import { DialogContent, DialogContentText, DialogTitle, FormControl, TextField, DialogActions, Button } from '@material-ui/core';
+import { SnackBar } from '../Common/Snackbar/SnackBar';
 const useDialogStyles = theme => ({
     form: {
         display: 'flex',
@@ -21,6 +22,7 @@ const useDialogStyles = theme => ({
 });
 
 class UserComponent extends Component {
+    snackbarRef  = createRef();
     state = {
         persons:
             [
@@ -31,12 +33,29 @@ class UserComponent extends Component {
                 { Id: 5, FirstName: 'Sai', LastName: 'Kumari', UserName: 'sai@gmail.com' }
             ],
         open: false,
-        user:{Id: '', FirstName: '', LastName: '', UserName: ''}
+        user:{Id: '', FirstName: '', LastName: '', UserName: ''},
+        selection:[]
     }
 
     handleAdd = () => {
         const showDialog = this.state.open;
         this.setState({ open: !showDialog })
+    }
+    handleEdit = (e)=>{
+        e.preventDefault();
+        const checkSelection = [...this.state.selection];
+        if(checkSelection.length == 0 || checkSelection.length > 1){
+            this.snackbarRef.current.openSnackBar('Please select one record to proceed.');
+        }
+        else {
+            const user = {...this.state.user};
+            user.Id = checkSelection[0].Id;
+            user.FirstName = checkSelection[0].FirstName;
+            user.LastName = checkSelection[0].LastName;
+            user.UserName = checkSelection[0].UserName;
+            this.setState({user:user,open:true});
+        }
+
     }
     handleClose = () => {
         const closeDialog = this.state.open;
@@ -54,6 +73,15 @@ class UserComponent extends Component {
        personsList.push(user);
        this.setState({persons:personsList,open:false});
     }
+    handleSelection = (event,item,index)=>{
+        const selection = [...this.state.selection];
+        if(event.target.checked)
+        selection.push(item);
+        else
+        selection.splice(item,index);
+
+        this.setState({selection:selection});
+    }
     render() {
         const { classes } = this.props;
         const list = [...this.state.persons];
@@ -62,10 +90,11 @@ class UserComponent extends Component {
 
             <div>
                 <div className="header-access">
+                    <div><SnackBar ref = {this.snackbarRef }/></div>
                     <h4>Users List</h4>
                     <div className="pd">
                         <Icon className="cursor-p" onClick={this.handleAdd}>add_circle</Icon>
-                        <Icon className="cursor-p">edit_circle</Icon>
+                        <Icon className="cursor-p" onClick={this.handleEdit}>edit_circle</Icon>
                         <Icon className="cursor-p">delete_circle</Icon>
                     </div>
                 </div>
@@ -82,7 +111,7 @@ class UserComponent extends Component {
                     <tbody>
                         {list.map((person,index) => {
                             return <tr key={index}>
-                                <td><Checkbox color="primary" inputProps={{ 'aria-label': 'secondary checkbox' }} /></td>
+                                <td><Checkbox color="primary" inputProps={{ 'aria-label': 'secondary checkbox' }} onChange={(event)=>this.handleSelection(event,person,index)}/></td>
                                 <td>{person.Id}</td>
                                 <td>{person.FirstName}</td>
                                 <td>{person.LastName}</td>
