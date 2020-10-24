@@ -75,12 +75,25 @@ class UserComponent extends Component {
     }
     handleSelection = (event,item,index)=>{
         const selection = [...this.state.selection];
-        if(event.target.checked)
-        selection.push(item);
-        else
-        selection.splice(item,index);
-
+        if(event.target.checked){
+            selection.push(item);
+        }
+        else{
+            selection.splice(item,index);
+        }
         this.setState({selection:selection});
+    }
+    handleDelete = ()=>{
+        const allPersons = [...this.state.persons];
+        let checkSelection = [...this.state.selection];
+        const indx = allPersons.indexOf(checkSelection[0]);
+        if(checkSelection.length == 0 || checkSelection.length > 1){
+            this.snackbarRef.current.openSnackBar('Please select one record to proceed.');
+        }else{
+            checkSelection = [];
+            allPersons.splice(indx,1);
+            this.setState({persons:allPersons,selection:checkSelection});
+        }
     }
     render() {
         const { classes } = this.props;
@@ -95,7 +108,7 @@ class UserComponent extends Component {
                     <div className="pd">
                         <Icon className="cursor-p" onClick={this.handleAdd}>add_circle</Icon>
                         <Icon className="cursor-p" onClick={this.handleEdit}>edit_circle</Icon>
-                        <Icon className="cursor-p">delete_circle</Icon>
+                        <Icon className="cursor-p" onClick={this.handleDelete}>delete_circle</Icon>
                     </div>
                 </div>
                 <Table striped bordered hover>
