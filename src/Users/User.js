@@ -3,7 +3,7 @@ import React, { Component, createRef } from 'react';
 import { Table } from 'react-bootstrap';
 import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
-import { DialogContent, DialogContentText, DialogTitle, FormControl, TextField, DialogActions, Button } from '@material-ui/core';
+import { DialogContent, DialogTitle, FormControl, TextField, DialogActions, Button } from '@material-ui/core';
 import { SnackBar } from '../Common/Snackbar/SnackBar';
 const useDialogStyles = theme => ({
     form: {
@@ -44,7 +44,7 @@ class UserComponent extends Component {
     handleEdit = (e)=>{
         e.preventDefault();
         const checkSelection = [...this.state.selection];
-        if(checkSelection.length == 0 || checkSelection.length > 1){
+        if(checkSelection.length === 0 || checkSelection.length > 1){
             this.snackbarRef.current.openSnackBar('Please select one record to proceed.');
         }
         else {
@@ -87,7 +87,7 @@ class UserComponent extends Component {
         const allPersons = [...this.state.persons];
         let checkSelection = [...this.state.selection];
         const indx = allPersons.indexOf(checkSelection[0]);
-        if(checkSelection.length == 0 || checkSelection.length > 1){
+        if(checkSelection.length === 0 || checkSelection.length > 1){
             this.snackbarRef.current.openSnackBar('Please select one record to proceed.');
         }else{
             checkSelection = [];
