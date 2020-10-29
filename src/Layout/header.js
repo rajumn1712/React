@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
-import './header.css';
+import classes from './header.css';
 // import logo from '../logo.svg';
 
 class HeaderComponent extends Component {
   render() {
     return (
       <div>
-        <header className="Header">
-        <div className="Font">
+        <header className={classes.Header}>
+        <div className={classes.Font}>
               {/* <img src={logo} className="App-logo" alt="logo" /> */}
               React Application</div>
           <div>
@@ -30,7 +30,7 @@ class HeaderComponent extends Component {
             </Nav>
           </div>
         </header>
-        <Nav defaultActiveKey="/home" className="d-none d-md-block sidebar">
+        <Nav defaultActiveKey="/home" className={classes.sidebar}>
           <Nav.Link href="/home">Active</Nav.Link>
           <Nav.Link eventKey="link-1">Link</Nav.Link>
           <Nav.Link eventKey="link-2">Link</Nav.Link>

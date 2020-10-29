@@ -16,7 +16,7 @@
 .Header nav{
     height: 100%;
 }
-.nav-item a{
+.Header a{
     color: white;
     text-decoration: none;
 }
@@ -34,4 +34,11 @@
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     margin-top: 56px !important;
     background-color: #282c34 !important;
+    display: none !important;
+  }
+
+  @media (min-width: 768px){
+    .sidebar {
+        display: block!important;
+    }
   }

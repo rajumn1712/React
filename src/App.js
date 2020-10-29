@@ -1,17 +1,15 @@
 import React from 'react';
-import './App.css';
+import classes from './App.css';
 import HeaderComponent from './Layout/header';
 import UserComponent from './Users/User';
 
 function App() {
   return (
-    <div className="App">
+    <div className={classes.App}>
         <HeaderComponent/>
-        <main className="mainClass">
+        <main className={classes.mainClass}>
         <UserComponent/>
         </main>
-      <div className="container">
-      </div>
     </div>
   );
 }
