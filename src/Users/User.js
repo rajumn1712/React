@@ -5,6 +5,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import { DialogContent, DialogTitle, FormControl, TextField, DialogActions, Button } from '@material-ui/core';
 import { SnackBar } from '../Common/Snackbar/SnackBar';
+import Aux from '../hoc/Auxillary';
+import FormComponent from '../components/FormsFolder/FormsComponent';
 const useDialogStyles = theme => ({
     form: {
         display: 'flex',
@@ -100,7 +102,8 @@ class UserComponent extends Component {
         const list = [...this.state.persons];
         const user = this.state.user;
         return (
-
+            <Aux>
+                <FormComponent/>
             <div>
                 <div className="header-access">
                     <div><SnackBar ref = {this.snackbarRef }/></div>
@@ -197,6 +200,7 @@ class UserComponent extends Component {
                     </DialogActions>
                 </Dialog>
             </div>
+            </Aux>
         )
     }
 }

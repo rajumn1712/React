@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import '../Snackbar/SnackBar.css'
+import './SnackBar.css';
 
 export class SnackBar extends PureComponent {
     message = '';

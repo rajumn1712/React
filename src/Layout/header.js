@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
-import logo from '../logo.svg';
+import './header.css';
+// import logo from '../logo.svg';
 
 class HeaderComponent extends Component {
   render() {
     return (
       <div>
-        <header className="App-header">
-          <div className="header-access">
-            <div className="header-search flex-auto">
-              <img src={logo} className="App-logo" alt="logo" />React</div>
+        <header className="Header">
+        <div className="Font">
+              {/* <img src={logo} className="App-logo" alt="logo" /> */}
+              React Application</div>
+          <div>
             <Nav className="d-flex pull-right">
               <Nav.Item>
                 <Nav.Link href="/home">Home</Nav.Link>
