@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import classes from './header.css';
 // import logo from '../logo.svg';
 
@@ -8,8 +9,8 @@ class HeaderComponent extends Component {
     return (
       <div>
         <header className={classes.Header}>
-        <div className={classes.Font}>
-              {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <div className={classes.Font}>
+            {/* <img src={logo} className="App-logo" alt="logo" /> */}
               React Application</div>
           <div>
             <Nav className="d-flex pull-right">
@@ -30,13 +31,11 @@ class HeaderComponent extends Component {
             </Nav>
           </div>
         </header>
-        <Nav defaultActiveKey="/home" className={classes.sidebar}>
-          <Nav.Link href="/home">Active</Nav.Link>
-          <Nav.Link eventKey="link-1">Link</Nav.Link>
-          <Nav.Link eventKey="link-2">Link</Nav.Link>
-          <Nav.Link eventKey="disabled" disabled>
-            Disabled
-  </Nav.Link>
+        <Nav defaultActiveKey="/user" className={classes.Sidebar}>
+          <Link to="/user">User Form</Link>
+          <Link to="/userlist">Users List</Link>
+          <Link to="/fake">Fake Users</Link>
+          <Link to="/products">Products</Link>
         </Nav>
       </div>
     );

@@ -24,8 +24,8 @@ class FakeComponent extends Component {
         const rows = this.state.posts;
         return (
             <Aux>
+                {!this.state.loader ? <CircularIndeterminate /> : null}
                 <div style={{ height: 800, width: '100%' }}>
-                    {!this.state.loader ? <CircularIndeterminate /> : null}
                     <DataGrid rows={rows} columns={columns} pageSize={20} />
                 </div>
             </Aux>

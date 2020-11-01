@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import Aux from '../../hoc/Auxillary';
 import axios from '../../axios-app';
+import {withRouter} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function FormComponent() {
+const FormComponent = (props) => {
   const classes = useStyles();
 
   const [useForm,SetUseForm] = useState({
@@ -37,7 +38,9 @@ const handleSubmit = ()=>{
     }
   }
   axios.post('/users.json',postUser)
-  .then(response => console.log(response))
+  .then(response => {
+    props.history.push('/userlist');
+  })
   .catch(error => console.log(error));
 }
 
@@ -54,3 +57,4 @@ const handleSubmit = ()=>{
       </Aux>
   );
 }
+ export default withRouter(FormComponent);

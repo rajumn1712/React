@@ -4,11 +4,10 @@ import { Table } from 'react-bootstrap';
 import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import { DialogContent, DialogTitle, FormControl, TextField, DialogActions, Button } from '@material-ui/core';
-import { SnackBar } from '../Common/Snackbar/SnackBar';
-import Aux from '../hoc/Auxillary';
-import FormComponent from '../components/FormsFolder/FormsComponent';
-import axios from '../axios-app';
-import CircularIndeterminate from '../Common/loader';
+import { SnackBar } from '../../Common/Snackbar/SnackBar';
+import Aux from '../../hoc/Auxillary';
+import axios from '../../axios-app';
+import CircularIndeterminate from '../../Common/loader';
 
 const useDialogStyles = theme => ({
     form: {
@@ -46,10 +45,16 @@ class UserComponent extends Component {
     }
 
     componentDidMount = ()=>{
+        console.log(this.props);
         const persons = [...this.state.persons];
         axios.get('/users.json')
         .then(response=>{
-            persons.push(response.data['-MKyjmFAtlGb9om5gZ2v'].users);
+            for(let key in response.data){
+                persons.push({
+                    ...response.data[key].users,
+                    id:key
+                });
+            }
             this.setState({persons:persons,loader:true});
         })
     }
@@ -118,7 +123,6 @@ class UserComponent extends Component {
         return (
             <Aux>
                 {!this.state.loader ? <CircularIndeterminate /> : null}
-                <FormComponent/>
             <div>
                 <div className={classes.HeaderAccess}>
                     <div><SnackBar ref = {this.snackbarRef }/></div>
@@ -141,7 +145,7 @@ class UserComponent extends Component {
                     </thead>
                     <tbody>
                         {list.map((person,index) => {
-                            return <tr key={index}>
+                            return <tr key={person.id}>
                                 <td><Checkbox color="primary" inputProps={{ 'aria-label': 'secondary checkbox' }} onChange={(event)=>this.handleSelection(event,person,index)}/></td>
                                 <td>{person.Id}</td>
                                 <td>{person.FirstName}</td>

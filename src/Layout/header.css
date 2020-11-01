@@ -10,7 +10,7 @@
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
-    z-index: 90;
+    z-index: 101;
     color: white;
 }
 .Header nav{
@@ -23,7 +23,7 @@
 .Font{
     font-size: 20px;
 }
-.sidebar {
+.Sidebar {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -36,9 +36,14 @@
     background-color: #282c34 !important;
     display: none !important;
   }
-
+.Sidebar a{
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+}
   @media (min-width: 768px){
-    .sidebar {
+    .Sidebar {
         display: block!important;
     }
   }
