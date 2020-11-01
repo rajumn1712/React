@@ -7,6 +7,9 @@ import { DialogContent, DialogTitle, FormControl, TextField, DialogActions, Butt
 import { SnackBar } from '../Common/Snackbar/SnackBar';
 import Aux from '../hoc/Auxillary';
 import FormComponent from '../components/FormsFolder/FormsComponent';
+import axios from '../axios-app';
+import CircularIndeterminate from '../Common/loader';
+
 const useDialogStyles = theme => ({
     form: {
         display: 'flex',
@@ -21,24 +24,35 @@ const useDialogStyles = theme => ({
     formControlLabel: {
         marginTop: theme.spacing(1),
     },
+    HeaderAccess : {
+        display: 'flex',
+        alignItems: 'center',
+        flex: 'auto'
+      },
+      Padd : {
+        padding: '16px !important',
+        cursor:'pointer'
+      }
 });
 
 class UserComponent extends Component {
     snackbarRef  = createRef();
     state = {
-        persons:
-            [
-                { Id: 1, FirstName: 'Nagaraju', LastName: 'Mandadapu', UserName: 'nagaraju@gmail.com' },
-                { Id: 2, FirstName: 'Sravanthi', LastName: 'Andru', UserName: 'sravanthi@gmail.com' },
-                { Id: 3, FirstName: 'Sudhakiran', LastName: 'Kallagunta', UserName: 'sudhakiran@gmail.com' },
-                { Id: 4, FirstName: 'Santhosh', LastName: 'Gunti', UserName: 'santhosh@gmail.com' },
-                { Id: 5, FirstName: 'Sai', LastName: 'Kumari', UserName: 'sai@gmail.com' }
-            ],
+        persons:[],
         open: false,
         user:{Id: '', FirstName: '', LastName: '', UserName: ''},
-        selection:[]
+        selection:[],
+        loader:false
     }
 
+    componentDidMount = ()=>{
+        const persons = [...this.state.persons];
+        axios.get('/users.json')
+        .then(response=>{
+            persons.push(response.data['-MKyjmFAtlGb9om5gZ2v'].users);
+            this.setState({persons:persons,loader:true});
+        })
+    }
     handleAdd = () => {
         const showDialog = this.state.open;
         this.setState({ open: !showDialog })
@@ -103,15 +117,16 @@ class UserComponent extends Component {
         const user = this.state.user;
         return (
             <Aux>
+                {!this.state.loader ? <CircularIndeterminate /> : null}
                 <FormComponent/>
             <div>
-                <div className="header-access">
+                <div className={classes.HeaderAccess}>
                     <div><SnackBar ref = {this.snackbarRef }/></div>
                     <h4>Users List</h4>
-                    <div className="pd">
-                        <Icon className="cursor-p" onClick={this.handleAdd}>add_circle</Icon>
-                        <Icon className="cursor-p" onClick={this.handleEdit}>edit_circle</Icon>
-                        <Icon className="cursor-p" onClick={this.handleDelete}>delete_circle</Icon>
+                    <div className={classes.Padd}>
+                        <Icon onClick={this.handleAdd}>add_circle</Icon>
+                        <Icon onClick={this.handleEdit}>edit_circle</Icon>
+                        <Icon onClick={this.handleDelete}>delete_circle</Icon>
                     </div>
                 </div>
                 <Table striped bordered hover>

@@ -24,7 +24,7 @@
   z-index: 32;
   position:fixed;
 }
-.header-access{
+.HeaderAccess{
   display: flex;
   align-items: center;
   flex: auto;
@@ -55,8 +55,9 @@
   margin-top: -16px !important;
   margin-bottom: -16px !important;
 }
-.pd{
+.Padd{
   padding: 16px !important;
+  cursor:pointer;
 }
 .cursor-p{
   cursor: pointer;

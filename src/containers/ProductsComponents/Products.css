@@ -1,0 +1,9 @@
+.Sarees{
+    display: flex;
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+.Typos{
+    display: flex;
+    justify-content: space-between;
+}

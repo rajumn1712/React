@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { Button } from '@material-ui/core';
 import Aux from '../../hoc/Auxillary';
+import axios from '../../axios-app';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,19 @@ const handleChange = (event) =>{
    SetUseForm(user);
 }
 
+const handleSubmit = ()=>{
+  const postUser = {
+    users:useForm,
+    owner:{
+      name:'Nagaraju',
+      country:'India'
+    }
+  }
+  axios.post('/users.json',postUser)
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
+}
+
   return (
       <Aux>
           <h5>User Form</h5>
@@ -35,7 +49,7 @@ const handleChange = (event) =>{
       <TextField id="standard-basic" label="First Name" name="FirstName" onChange={(event)=>handleChange(event)}/>
       <TextField id="standard-basic" label="Last Name" name="LastName" onChange={(event)=>handleChange(event)}/>
       <TextField id="standard-basic" label="Email" name="UserName" onChange={(event)=>handleChange(event)}/>
-      <Button color="primary">Submit</Button>
+      <Button color="primary" onClick={handleSubmit}>Submit</Button>
     </form>
       </Aux>
   );

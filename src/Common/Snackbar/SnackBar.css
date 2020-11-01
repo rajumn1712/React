@@ -1,4 +1,4 @@
-.snackbar {
+.Snackbar {
     visibility: hidden;
     min-width: 250px;
     margin-left: -125px;
@@ -14,7 +14,7 @@
     font-size: 1rem;
   }
   
-  .snackbar.show {
+  .Snackbar.show {
     visibility: visible; /* Show the snackbar */
     /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
    However, delay the fade out process for 2.5 seconds */
