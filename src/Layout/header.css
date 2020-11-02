@@ -4,7 +4,7 @@
     position:fixed;
     top:0;
     left:0;
-    background-color: #282c34;
+    background-color: #160242;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,7 +33,7 @@
     padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     margin-top: 56px !important;
-    background-color: #282c34 !important;
+    background-color: #160242 !important;
     display: none !important;
   }
 .Sidebar a{

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import classes from './header.css';
 // import logo from '../logo.svg';
 
@@ -11,7 +11,7 @@ class HeaderComponent extends Component {
         <header className={classes.Header}>
           <div className={classes.Font}>
             {/* <img src={logo} className="App-logo" alt="logo" /> */}
-              React Application</div>
+              Job Board</div>
           <div>
             <Nav className="d-flex pull-right">
               <Nav.Item>
@@ -31,12 +31,12 @@ class HeaderComponent extends Component {
             </Nav>
           </div>
         </header>
-        <Nav defaultActiveKey="/user" className={classes.Sidebar}>
+        {/* <Nav defaultActiveKey="/user" className={classes.Sidebar}>
           <Link to="/user">User Form</Link>
           <Link to="/userlist">Users List</Link>
           <Link to="/fake">Fake Users</Link>
           <Link to="/products">Products</Link>
-        </Nav>
+        </Nav> */}
       </div>
     );
   }

@@ -66,9 +66,7 @@
   color: #61dafb;
 }
 .mainClass{
-  padding-top: 72px;
-  padding-left: 120px;
-  padding-right: 16px;
+  padding: 72px 120px 20px 120px;
 }
 @keyframes App-logo-spin {
   from {

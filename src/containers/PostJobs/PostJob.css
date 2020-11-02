@@ -1,0 +1,18 @@
+.HeaderAccess {
+    display: flex;
+    align-items: center;
+    flex: auto;
+  }
+  .Padd {
+    padding: 16px !important;
+    cursor: pointer;
+  }
+  .Iconcolor{
+    color: #225fa1;
+  }
+  .Buttoncolor{
+    background-color: #225fa1;
+  }
+  .Right{
+      text-align: right;
+  }
