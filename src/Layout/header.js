@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Nav } from 'react-bootstrap';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classes from './header.css';
 // import logo from '../logo.svg';
 
@@ -14,8 +14,11 @@ class HeaderComponent extends Component {
               Job Board</div>
           <div>
             <Nav className="d-flex pull-right">
-              <Nav.Item>
-                <Nav.Link href="/home">Home</Nav.Link>
+              <Link to="/jobpost">Create a Job</Link>
+              <Link to="/myjobs">My Jobs</Link>
+              <Link to="/applyjob">Apply Job</Link>
+              {/* <Nav.Item>
+                <Nav.Link to="/jobpost">Create a Job</Nav.Link>
               </Nav.Item>
               <Nav.Item>
                 <Nav.Link eventKey="link-1">About</Nav.Link>
@@ -27,7 +30,7 @@ class HeaderComponent extends Component {
                 <Nav.Link eventKey="disabled" disabled>
                   Network
     </Nav.Link>
-              </Nav.Item>
+              </Nav.Item> */}
             </Nav>
           </div>
         </header>

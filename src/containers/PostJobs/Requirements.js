@@ -14,7 +14,9 @@ const Requirements = (props) => {
                 </div>
             <div>
                 {props.records.map((record, index) => {
-                    return <TextField key={index} className={props.responsible} id="outlined-requirements" type="responsibility" variant="outlined" name={record.Description} value={record.Description} />
+                    return <TextField key={index} className={props.responsible} 
+                    id="outlined-requirements" placeholder="Add some content" type="responsibility" 
+                    variant="outlined" name="Description" value={record.Description} onChange={props.changed}/>
                 })}
             </div>
         </Fragment>
