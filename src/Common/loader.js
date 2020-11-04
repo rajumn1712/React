@@ -1,21 +1,27 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Backdrop from '@material-ui/core/Backdrop';
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    position:'absolute',
-    top:'50%',
-    left:'50%'
+  backdrop: {
+    zIndex: theme.zIndex.drawer + 1,
+    color: '#fff',
   },
 }));
 
-export default function CircularIndeterminate() {
+const CircularIndeterminate = (props) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <CircularProgress />
+    <div>
+      <Backdrop className={classes.backdrop} open={props.open}>
+        <CircularProgress/>
+      </Backdrop>
+
     </div>
   );
 }
+
+export default CircularIndeterminate;

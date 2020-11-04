@@ -38,7 +38,8 @@ export default function PostAJob() {
         Company:'',
         Location:'',
         Country:'',
-        Description:''
+        Description:'',
+        CreatedDate:new Date()
     })
 
     const [addState, setAddState] = useState({
@@ -55,6 +56,7 @@ export default function PostAJob() {
     const [errors,setErrors] = useState('');
     const [error,setError] = useState({});
     const [loader,setLoader] = useState(false);
+    const [open,setOpen] = useState(false);
 
 
     const allFields = {...fields};
@@ -123,7 +125,7 @@ export default function PostAJob() {
         if(handleValidation()){
             return
         }else{
-            setLoader(true);
+            setOpen(true);
             axios.post('createjobs.json',finalObject)
             .then(response =>{
                 setFields({JobTitle:'',
@@ -136,13 +138,14 @@ export default function PostAJob() {
                 setAddState({responsibilities:[{ Description: '' }]})
                 setRequire({requirements:[{ Description: '' }]})
                 setLoader(false);
+                setOpen(false);
             })
         }
     }
 
     return (
         <Fragment>
-            {loader ? <CircularIndeterminate /> : null}
+            {!loader ? <CircularIndeterminate open={open} /> : null}
             <form className={classes.root} autoComplete="off" onSubmit={handleSubmit}>
                 <div><h3>Create a Job</h3></div>
                 <div>

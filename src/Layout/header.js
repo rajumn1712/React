@@ -16,7 +16,7 @@ class HeaderComponent extends Component {
             <Nav className="d-flex pull-right">
               <Link to="/jobpost">Create a Job</Link>
               <Link to="/myjobs">My Jobs</Link>
-              <Link to="/applyjob">Apply Job</Link>
+              <Link to="/applyjob">Applied</Link>
               {/* <Nav.Item>
                 <Nav.Link to="/jobpost">Create a Job</Nav.Link>
               </Nav.Item>
