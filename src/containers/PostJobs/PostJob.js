@@ -149,15 +149,15 @@ export default function PostAJob() {
             <form className={classes.root} autoComplete="off" onSubmit={handleSubmit}>
                 <div><h3>Create a Job</h3></div>
                 <div>
-                    <TextField className="textfields" id="outlined-role" label="Job Role" type="role" variant="outlined" name="JobTitle" helperText={errors} value={allFields.JobTitle} onChange={handleChange}/>
-                    <TextField className="textfields" id="outlined-current" label="Current Role" type="current" variant="outlined" name="CurrentRole" helperText={errors} value={allFields.CurrentRole} onChange={handleChange}/>
-                    <TextField className="textfields" id="outlined-industry" label="Industry" type="industry" variant="outlined" name="Industry" helperText={errors} value={allFields.Industry} onChange={handleChange}/>
-                    <TextField className="textfields" id="outlined-company" label="Company" type="company" variant="outlined" name="Company" helperText={errors} value={allFields.Company} onChange={handleChange}/>
-                    <TextField className="textfields" id="outlined-location" label="Location" type="location" variant="outlined" name="Location" helperText={errors} value={allFields.Location} onChange={handleChange}/>
-                    <TextField className="textfields" id="outlined-error-country" label="Country" type="country" variant="outlined" helperText={errors} name="Country" value={allFields.Country} onChange={handleChange}/>
+                    <TextField InputLabelProps={{ required: true }} className="textfields" id="outlined-role" label="Job Role" type="role" variant="outlined" name="JobTitle" helperText={errors} value={allFields.JobTitle} onChange={handleChange}/>
+                    <TextField InputLabelProps={{ required: true }} className="textfields" id="outlined-current" label="Current Role" type="current" variant="outlined" name="CurrentRole" helperText={errors} value={allFields.CurrentRole} onChange={handleChange}/>
+                    <TextField InputLabelProps={{ required: true }} className="textfields" id="outlined-industry" label="Industry" type="industry" variant="outlined" name="Industry" helperText={errors} value={allFields.Industry} onChange={handleChange}/>
+                    <TextField InputLabelProps={{ required: true }} className="textfields" id="outlined-company" label="Company" type="company" variant="outlined" name="Company" helperText={errors} value={allFields.Company} onChange={handleChange}/>
+                    <TextField InputLabelProps={{ required: true }} className="textfields" id="outlined-location" label="Location" type="location" variant="outlined" name="Location" helperText={errors} value={allFields.Location} onChange={handleChange}/>
+                    <TextField InputLabelProps={{ required: true }} className="textfields" id="outlined-error-country" label="Country" type="country" variant="outlined" helperText={errors} name="Country" value={allFields.Country} onChange={handleChange}/>
                 </div>
                 <div>
-                    <TextField className="textarea" id="outlined-description" label="Job Description" rows={10} type="description" helperText={errors} multiline variant="outlined" name="Description" value={allFields.Description} onChange={handleChange}/>
+                    <TextField InputLabelProps={{ required: true }} className="textarea" id="outlined-description" label="Job Description" rows={10} type="description" helperText={errors} multiline variant="outlined" name="Description" value={allFields.Description} onChange={handleChange}/>
                 </div>
                 <Responsibilities records={records} responsible='responsible' clicked={handleAddResponsibles} changed={handleOtherChange}/>
                 <Requirements records={requireRecords} responsible='responsible' clicked={handleAddRequirements} changed={handlerequirementChange}/>

@@ -14,7 +14,7 @@ const Responsibilities = (props) => {
                 </div>
             <div>
                 {props.records.map((record, index) => {
-                    return <TextField key={index} className={props.responsible} 
+                    return <TextField InputLabelProps={{ required: true }} key={index} className={props.responsible} 
                     id="outlined-responsibility" type="responsibility" variant="outlined" 
                     placeholder="Add some content" name="Description" 
                     value={record.Description} onChange={props.changed}/>

@@ -14,7 +14,7 @@ const Requirements = (props) => {
                 </div>
             <div>
                 {props.records.map((record, index) => {
-                    return <TextField key={index} className={props.responsible} 
+                    return <TextField InputLabelProps={{ required: true }} key={index} className={props.responsible} 
                     id="outlined-requirements" placeholder="Add some content" type="responsibility" 
                     variant="outlined" name="Description" value={record.Description} onChange={props.changed}/>
                 })}

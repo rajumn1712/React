@@ -4,6 +4,7 @@ import classes from './App.css';
 import HeaderComponent from './Layout/header';
 import PostAJob from './containers/PostJobs/PostJob';
 import MyJob from './containers/MyJobs/MyJobs';
+import Applications from './containers/TotalJobs/AppliedJobs';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Switch>
           <Route path="/jobpost" component={PostAJob}/>
           <Route path="/myjobs" component={MyJob}/>
+          <Route path="/applyjob" component={Applications}/>
           <Route path="/" component={PostAJob}/>
           </Switch>
         </main>

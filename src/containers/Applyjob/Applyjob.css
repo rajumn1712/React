@@ -3,3 +3,22 @@
     padding: 10px;
     text-align: justify
 }
+.ButtonStick{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 20px;
+}
+.ButtonStick button{ 
+    margin-right:16px;
+    }
+    .ButtonStick button:last-child{
+    margin-right:5px;
+    }
+    .rowText .marginText{
+        margin-right: 19px;
+    }
+    .rowText .marginText:last-child{
+        margin-right: 5px;
+    }
+    

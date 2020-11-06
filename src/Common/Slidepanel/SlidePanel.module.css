@@ -49,6 +49,7 @@
     right: 0px;
     bottom: 0px;
     background-color: rgba(0,0,0,0);
+    z-index:102;
   }
   .slide-pane__overlay.ReactModal__Overlay--after-open {
     background-color: rgba(0,0,0,0.3);
@@ -59,10 +60,10 @@
   }
   .slide-pane__header {
     display: flex;
-    flex: 0 0 64px;
+    flex: 0 0 56px;
     align-items: center;
     background: #ebebeb;
-    height: 64px;
+    height: 56px;
     border-bottom: 1px solid rgba(0,0,0,0.1);
   }
   .slide-pane__title-wrapper {
@@ -75,7 +76,7 @@
   .slide-pane .slide-pane__title {
     font-size: 18px;
     font-weight: normal;
-    max-width: 80%;
+    max-width: 60%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -83,15 +84,14 @@
     padding: 0;
   }
   .slide-pane__close {
-    margin-left: 24px;
-    padding: 16px;
-    opacity: 0.7;
+    position: absolute;
+    right: 15px;
     cursor: pointer;
   }
-  .slide-pane__close svg {
+  /* .slide-pane__close svg {
     width: 12px;
     padding: 0;
-  }
+  } */
   .slide-pane__content {
     position: relative;
     overflow-y: auto;
